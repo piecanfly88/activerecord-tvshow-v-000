@@ -21,7 +21,9 @@ class Show < ActiveRecord::Base
   end
   
   def self.popular_shows
-    
+    self.all.collect do |show|
+      show.rating > 5
+    end
   end
   
   def self.shows_by_alphabetical_order
